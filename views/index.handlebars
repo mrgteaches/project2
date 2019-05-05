@@ -6,67 +6,36 @@
 
     <!--Input data button-->
     <div class="row justify-content-center inputButton">
-      <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#inputModalCenter">
+      <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#form-modal">
         Create your data
       </button>
     </div>
 
     <!--Modal-->
-    <div class="modal fade" id="inputModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade add-form" id="form-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Create your data!</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form class="clearfix mb-4" action="POST">
-              <div class="form-row mt-2">
-                <div class="col">
-                  <label>Question</label>
-                  <input type="text" class="form-control" placeholder="Input your question here...">
+            <form id="form3" class="form-horizontal" action="/" method="post"  enctype="application/x-www-form-urlencoded">
+                <div class="modal-header">
+                    <input type="text" placeholder="Name your data set">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="col">
-                  <label>Answer</label>
-                  <input type="text" class="form-control" placeholder="input your answer here...">
+                <div class="modal-body">
+                    <table class="table table-bordered form-table">
+                        <tr style="text-align: center;">
+                            <td><input type="text" maxlength="100" name="term" class="form-control" placeholder="Add Term" required></td>
+                            <td><textarea  name="definition" class="form-control" placeholder="Definition" required></textarea></td>
+                            <td><i class="fa fa-plus add"></i> </td>
+                        </tr>
+                    </table>
                 </div>
-              </div>
-              <div class="form-row mt-2">
-                <div class="col">
-                  <label>Question</label>
-                  <input type="text" class="form-control" placeholder="Input your question here...">
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success " id="insert3">Save</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
-                <div class="col">
-                  <label>Answer</label>
-                  <input type="text" class="form-control" placeholder="input your answer here...">
-                </div>
-              </div>
-              <div class="form-row mt-2">
-                <div class="col">
-                  <label>Question</label>
-                  <input type="text" class="form-control" placeholder="Input your question here...">
-                </div>
-                <div class="col">
-                  <label>Answer</label>
-                  <input type="text" class="form-control" placeholder="input your answer here...">
-                </div>
-              </div>
-              <div class="form-row mt-2">
-                <div class="col">
-                  <label>Question</label>
-                  <input type="text" class="form-control" placeholder="Input your question here...">
-                </div>
-                <div class="col">
-                  <label>Answer</label>
-                  <input type="text" class="form-control" placeholder="input your answer here...">
-                </div>
-              </div>
-              <button id="submit" class="btn btn-primary float-right mt-2">Submit</button>
             </form>
-          </div>
         </div>
       </div>
     </div>
@@ -93,3 +62,27 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+<script>
+    $(document).ready(function(){
+        $(document).on("click","i.add",function() {
+            var rows = $('.form-table tbody  tr').length;
+            var $tr    = $(this).closest('tr');
+            var tr = '<tr style="text-align: center;">'+
+                     '<td><input type="text" maxlength="100" name="term" class="form-control" placeholder="Add Term" required></td>'+
+                    '<td><textarea  name="definition" class="form-control" placeholder="Definition" required></textarea></td>'+
+                    '<td><i class="fa fa-minus"></i> &nbsp; <i class="fa fa-plus add"></i></td></tr>';
+            $tr.after(tr);
+            if(rows == 1)
+                $(this).addClass('fa-minus').removeClass('fa-plus add');
+            else
+                $(this).remove();
+        });
+        $(document).on("click","i.fa-minus",function() {
+            var rows = $('.form-table tbody  tr').length;
+            if(rows == 2){
+                $(this).parent().parent().prev().find('i.fa-minus').addClass('fa-plus add').removeClass('fa-minus');
+            }
+            $(this).parent().parent().remove();
+        });
+    });
+</script>
