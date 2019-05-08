@@ -2,12 +2,12 @@
 
 var mysql = require('mysql');
 
-//mysql db connection
+//nodemonmysql db connection
 var connection = mysql.createConnection({
-    host: 'localhost', // host name
-    user: 'root', // Database user name
-    password: 'project2',// database password
-    database: 'flashcard_db' // database name
+    host: 'localhost', //Your host name
+    user: 'root', //Your Database user name
+    password: '',//Your database password
+    database: 'flashcard_db' //Your database name
 });
 
 connection.connect(function(err) {
