@@ -1,0 +1,99 @@
+<div id="home">
+    <div class="container">
+        <div class="row justify-content-center">
+            <h1 class="text-center">The Learning Lizard</h1>
+        </div>
+
+        <!--Input data button-->
+        <div class="row justify-content-center inputButton">
+            <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#form-modal">
+                Create your data
+            </button>
+        </div>
+
+        <!--Modal-->
+        <div class="modal fade add-form" id="form-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="false">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <form id="form3" class="form-horizontal" action="/" method="post"
+                        enctype="application/x-www-form-urlencoded">
+                        <div class="modal-header">
+                            <input id="title" type="text" placeholder="Name your data set">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-bordered form-table">
+                                <tr class="questAnswer" style="text-align: center;">
+                                    <td class="question"><input type="text" maxlength="100" name="term"
+                                            class="form-control" placeholder="Add Term" required></td>
+                                    <td class="answer"><textarea name="answer" class="form-control"
+                                            placeholder="answer" required></textarea></td>
+                                    <td><i class="fa fa-plus add"></i> </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success " id="save">Save</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--Row for different modes-->
+        <div class="row fixed-bottom justify-content-center">
+            <div class="col-3">
+                <!--<img src="../public/images/pixel.png" alt="placeholder image">-->
+                <br>
+                <a href="/flashcards">
+                    <h3 class="text-center p-4">Flashcards</h3>
+                </a>
+            </div>
+            <div class="col-3">
+                <!--<img src="../public/images/pixel.png" alt="placeholder image">-->
+                <br>
+                <a href="#">
+                    <h3 class="text-center p-4">Hangman</h3>
+                </a>
+            </div>
+            <div class="col-3">
+                <!--<img src="../public/images/pixel.png" alt="placeholder image">-->
+                <br>
+                <a href="#">
+                    <h3 class="text-center p-4">Multiple Choice</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(document).on("click", "i.add", function (event) {
+            event.preventDefault();
+            var rows = $('.form-table tbody  tr').length;
+            var $tr = $(this).closest('tr');
+            var tr = '<tr class="questAnswer" style="text-align: center;">' +
+                '<td class="question"><input type="text" maxlength="100" name="term" class="form-control" placeholder="Add Term" required></td>' +
+                '<td class="answer"><textarea  name="answer" class="form-control" placeholder="answer" required></textarea></td>' +
+                '<td><i class="fa fa-minus"></i> &nbsp; <i class="fa fa-plus add"></i></td></tr>';
+            $tr.after(tr);
+            if (rows == 1)
+                $(this).addClass('fa-minus').removeClass('fa-plus add');
+            else
+                $(this).remove();
+        });
+        $(document).on("click", "i.fa-minus", function () {
+            var rows = $('.form-table tbody  tr').length;
+            if (rows == 2) {
+                $(this).parent().parent().prev().find('i.fa-minus').addClass('fa-plus add').removeClass('fa-minus');
+            }
+            $(this).parent().parent().remove();
+        });
+    });
+</script>
