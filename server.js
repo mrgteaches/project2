@@ -1,47 +1,24 @@
-require("dotenv").config();
-var express = require("express");
-var exphbs = require("express-handlebars");
+let express = require('express'),
+    exphbs  = require('express-handlebars'),
+    bodyParser = require('body-parser'),
+    mysql = require('mysql'),
+    path = require('path'),
+    app = express(),
+    port = 8000,
+    routes = require('./config/routes.js');
 
-var db = require("./models");
+app.set('port', process.env.port || port); // set express to use this port
+app.set('views', __dirname + '/views'); // set express to look in this folder to render our view
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
-var app = express();
-var PORT = process.env.PORT || 3000;
+app.use(bodyParser.json()); // parse form data client
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(__dirname + '/public'));
 
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static("public"));
-
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
-app.set("view engine", "handlebars");
-
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
-
-var syncOptions = { force: false };
-
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
-}
-
-// Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
+app.listen(port, ()=>{
+    console.log(`server running on port: ${port}`);
 });
 
-module.exports = app;
+routes(app);
+
