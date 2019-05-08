@@ -21,7 +21,7 @@ exports.insert = function(req,res){
         for(let ind in terms.term) {
             let term = {
                 term:terms.term[ind],
-                definition:terms.definition[ind]
+            answer:terms.answer[ind]
             }
             Term.insertOne(term, function () {
 
@@ -31,7 +31,7 @@ exports.insert = function(req,res){
     }else{
         let term = {
             term:terms.term,
-            definition:terms.definition
+            answer:terms.answer
         }
         Term.insertOne(term, function () {
 
