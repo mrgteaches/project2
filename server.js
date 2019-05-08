@@ -1,8 +1,9 @@
 let express = require('express'),
+    db = require("./models"),
     exphbs  = require('express-handlebars'),
     bodyParser = require('body-parser'),
-    mysql = require('mysql'),
-    path = require('path'),
+    // mysql = require('mysql'),
+    // path = require('path'),
     app = express(),
     port = 8000,
     routes = require('./config/routes.js');
@@ -16,9 +17,16 @@ app.use(bodyParser.json()); // parse form data client
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 
-app.listen(port, ()=>{
-    console.log(`server running on port: ${port}`);
-});
+// app.listen(port, ()=>{
+//     console.log(`server running on port: ${port}`);
+// });
 
 routes(app);
+
+db.sequelize.sync().then(function() {
+    app.listen(port, function() {
+        console.log("Listening on port %s", port);
+    });
+});
+
 
