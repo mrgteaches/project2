@@ -29,8 +29,8 @@
                                 <tr class="questAnswer" style="text-align: center;">
                                     <td class="question"><input type="text" maxlength="100" name="term"
                                             class="form-control" placeholder="Add Term" required></td>
-                                    <td class="answer"><textarea name="answer" class="form-control"
-                                            placeholder="answer" required></textarea></td>
+                                    <td class="answer"><textarea name="definition" class="form-control"
+                                            placeholder="definition" required></textarea></td>
                                     <td><i class="fa fa-plus add"></i> </td>
                                 </tr>
                             </table>
@@ -56,7 +56,7 @@
             <div class="col-3">
                 <img src="/assets/images/pixel.png" alt="placeholder image">
                 <br>
-                <a href="#">
+                <a href="/hangman">
                     <h3 class="text-center p-4">Hangman</h3>
                 </a>
             </div>
@@ -80,7 +80,7 @@
             var $tr = $(this).closest('tr');
             var tr = '<tr class="questAnswer" style="text-align: center;">' +
                 '<td class="question"><input type="text" maxlength="100" name="term" class="form-control" placeholder="Add Term" required></td>' +
-                '<td class="answer"><textarea  name="answer" class="form-control" placeholder="answer" required></textarea></td>' +
+                '<td class="answer"><textarea  name="definition" class="form-control" placeholder="definition" required></textarea></td>' +
                 '<td><i class="fa fa-minus"></i> &nbsp; <i class="fa fa-plus add"></i></td></tr>';
             $tr.after(tr);
             if (rows == 1)
