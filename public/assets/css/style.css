@@ -4,12 +4,9 @@ body{
     font-size: 150%;
     height: 100%;
 }
-.wrapper{
-
-}
 .gradient-bg{
-    background: rgb(43,198,229); /* Old browsers */
-    background: -moz-linear-gradient(left, rgba(43,198,229,1) 1%, rgba(35,221,215,1) 19%, rgba(128,215,237,1) 63%, rgba(43,198,229,1) 99%); /* FF3.6-15 */
+    background: rgb(43,198,229); /* Old browsers*/ 
+    background: -moz-linear-gradient(left, rgba(43,198,229,1) 1%, rgba(35,221,215,1) 19%, rgba(128,215,237,1) 63%, rgba(43,198,229,1) 99%); /* FF3.6-15*/ 
     background: -webkit-linear-gradient(left, rgba(43,198,229,1) 1%,rgba(35,221,215,1) 19%,rgba(128,215,237,1) 63%,rgba(43,198,229,1) 99%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right, rgba(43,198,229,1) 1%,rgba(35,221,215,1) 19%,rgba(128,215,237,1) 63%,rgba(43,198,229,1) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2bc6e5', endColorstr='#2bc6e5',GradientType=1 );
@@ -44,7 +41,7 @@ body{
 
 body:not(.modal-open){
     padding-right: 0 !important;
-}
+} 
 
 i.add, i.fa-minus{
     cursor: pointer;
@@ -57,4 +54,15 @@ i.add, i.fa-minus{
 
 .panel-heading a:hover{
     text-decoration: none;
+}
+
+#mainLogo {
+    width: 350px;
+    height: 300px;
+}
+
+.learningModeImg {
+    width: 200px;
+    height: 200px;
+    
 }
