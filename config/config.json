@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "J@m3s005",
+    "password": "",
     "database": "flashcard_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
