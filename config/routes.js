@@ -8,9 +8,10 @@ module.exports = function (app) {
   });
 
   app.get("/flashcards", function (req, res) {
-    // db.Terms.findAll({}).then
-    res.render("flashcard")
-
+    db.Terms.findAll({}).then(function(data){
+      console.log(data);
+      res.render("flashcard", {Terms:data});
+    })
   });
 
   app.get("/hangman", function (req, res) {

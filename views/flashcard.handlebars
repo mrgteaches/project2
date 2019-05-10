@@ -8,27 +8,26 @@
 </nav>
 <div class="container-fluid">
     <div class="col-md-8 col-md-offset-2">
-        <div class="panel-group" id="accordion">
-            {{#each Term}}
-                <div class="panel panel-default">
-                    <div class="panel-heading" data-toggle="collapse" href="#definition{{@index}}">
-                        <h4 class="panel-title">
-                            <a data-parent="#accordion" >
+            <div class="accordion" id="accordionExample"></div>
+            {{#each Terms}}
+                <div class="card">
+                    <div class="card-header" id="headingOne{{@index}}">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne{{@index}}"
+                                aria-expanded="true" aria-controls="collapseOne{{@index}}">
                                 {{term}}
-                            </a>
-                        </h4>
+                            </button>
+                        </h2>
                     </div>
-                    <div id="defination{{@index}}" class="panel-collapse collapse">
-                        <div class="panel-body">
+
+                    <div id="collapseOne{{@index}}" class="collapse" aria-labelledby="headingOne{{@index}}"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
                             {{definition}}
                         </div>
                     </div>
                 </div>
-            {{else}}
-                <div class="alert alert-danger">
-                    <p class="text-center">List is empty</p>
-                </div>
             {{/each}}
-        </div>
+            </div>
     </div>
 </div>

@@ -57,12 +57,20 @@ i.add, i.fa-minus{
 }
 
 #mainLogo {
-    width: 350px;
-    height: 300px;
+    width: 450px;
+    height: 400px;
+    margin: -100px;
 }
 
 .learningModeImg {
     width: 200px;
     height: 200px;
-    
+}
+
+.fixed-bottom {
+    margin-bottom: 150px;
+}
+
+.inputButton {
+    margin-top: 50px;
 }
