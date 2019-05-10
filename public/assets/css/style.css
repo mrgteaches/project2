@@ -74,3 +74,39 @@ i.add, i.fa-minus{
 .inputButton {
     margin-top: 50px;
 }
+
+.bd-example {
+    margin-top: 50px;
+}
+
+.carousel-item {
+    height: 500px;
+}
+
+.carousel-caption {
+    background-color: green;
+}
+
+.carousel-caption a {
+    color: white;
+}
+
+.carousel-caption a:hover {
+    text-decoration-line: none;
+}
+
+.carousel-control-prev-icon{
+    color: green;
+}
+
+.carousel-control-next-icon {
+    color: green;
+}
+
+.navbar h2 {
+    color: white;
+}
+
+#homeButton:hover {
+    color: green;
+}
