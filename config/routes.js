@@ -7,9 +7,12 @@ module.exports = function (app) {
     res.render("index")
   });
 
+  app.get('/index', function (req, res) {
+    res.render("index")
+  });
+
   app.get("/flashcards", function (req, res) {
     db.Terms.findAll({}).then(function(data){
-      console.log(data);
       res.render("flashcard", {Terms:data});
     })
   });

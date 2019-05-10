@@ -1,33 +1,31 @@
-<nav class="navbar gradient-bg">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand">Flash App</a>
-        </div>
-    </div><!-- /.container-fluid -->
+<nav class="navbar navbar-light bg-success">
+    <h2>Flashcards</h2>
+    <a href="index"><button class="btn btn-outline-light my-2 my-sm-0" id="homeButton">Home</button></a>
 </nav>
-<div class="container-fluid">
-    <div class="col-md-8 col-md-offset-2">
-            <div class="accordion" id="accordionExample"></div>
-            {{#each Terms}}
-                <div class="card">
-                    <div class="card-header" id="headingOne{{@index}}">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne{{@index}}"
-                                aria-expanded="true" aria-controls="collapseOne{{@index}}">
-                                {{term}}
-                            </button>
-                        </h2>
-                    </div>
 
-                    <div id="collapseOne{{@index}}" class="collapse" aria-labelledby="headingOne{{@index}}"
-                        data-parent="#accordionExample">
-                        <div class="card-body">
-                            {{definition}}
-                        </div>
+<!-- /.container-fluid -->
+<div class="container-fluid">
+    <div class="col-xs text-center">
+        <div class="accordion" id="accordionExample">
+        {{#each Terms}}
+            <div class="card">
+                <div class="card-header" id="headingOne{{@index}}">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse"
+                            data-target="#collapseOne{{@index}}" aria-expanded="true" aria-controls="collapseOne{{@index}}">
+                            {{term}}
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="collapseOne{{@index}}" class="collapse" aria-labelledby="headingOne{{@index}}"
+                    data-parent="#accordionExample">
+                    <div class="card-body">
+                        {{definition}}
                     </div>
                 </div>
-            {{/each}}
             </div>
+        {{/each}}
+        </div>
     </div>
 </div>
