@@ -13,6 +13,7 @@ body{
 }
 
 .navbar{
+    background-color: green;
     border-radius: 0;
 }
 
@@ -24,6 +25,10 @@ body{
     color: #fff;
     font-size: 26px;
     font-weight: 500;
+}
+
+.navbar a:hover {
+    text-decoration-line: none;
 }
 
 .body-bg{
@@ -45,7 +50,7 @@ body:not(.modal-open){
 
 i.add, i.fa-minus{
     cursor: pointer;
-    color: #00A2E8;
+    color: green;
 }
 
 .panel-heading{
@@ -59,11 +64,12 @@ i.add, i.fa-minus{
 #mainLogo {
     width: 450px;
     height: 400px;
-    margin: -100px;
+    margin-top: -100px;
+    margin-bottom: -50px;
 }
 
 .learningModeImg {
-    width: 200px;
+    width: 100%;
     height: 200px;
 }
 
@@ -85,14 +91,7 @@ i.add, i.fa-minus{
 
 .carousel-caption {
     background-color: green;
-}
-
-.carousel-caption a {
-    color: white;
-}
-
-.carousel-caption a:hover {
-    text-decoration-line: none;
+    opacity:0.9;
 }
 
 .carousel-control-prev-icon{
@@ -109,4 +108,55 @@ i.add, i.fa-minus{
 
 #homeButton:hover {
     color: green;
+}
+
+#modes {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.mode{
+    background-color: green;
+}
+.card-body a {
+    color: white;
+}
+
+.card-body p {
+    color: white;
+}
+
+.card-body a:hover {
+    text-decoration-line: none;
+}
+
+hr {
+    background-color: white;
+}
+
+.jumbotron {
+    background-color: green;
+}
+
+.jumbotron p,h1 {
+    color: white;
+}
+
+.btn-light {
+    color: green;
+}
+
+#lizard {
+    height: 200px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.jumbotron h1 {
+    margin-top: 80px;
+    font-size: 54px;
+}
+
+.navbar-brand a {
+    color: white;
 }

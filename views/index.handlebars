@@ -1,15 +1,27 @@
 <div id="home">
     <div class="container">
-        <!--logo-->
-        <div class="row justify-content-center">
-            <img class="img-fluid" src="assets/images/logo.png" alt="logo" id="mainLogo">
-        </div>
-
-        <!--Input data button-->
-        <div class="row text-center justify-content-center inputButton">
-            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#form-modal">
-                Create your data
-            </button>
+        <!--Jumbotron with logo-->
+        <div class="jumbotron">
+            <div class="row">
+                {{!-- <h1 class="display-4 text-center">The<br>Learning<br>Lizard</h1> --}}
+                <div class="col-4">
+                    <img class="img-fluid" src="assets/images/lizardLogo.png" alt="lizard" id="lizard">
+                </div>
+                <div class="col-8">
+                    <h1 class="text-center">"Study Your Way!"</h1>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            <div class="row text-center justify-content-center inputButton mr-2">
+                <button type="button" id="createButton" class="btn btn-light btn-lg" data-toggle="modal"
+                    data-target="#form-modal">
+                    Create Your Data
+                </button>
+                <button type="button" id="erase" class="btn btn-light btn-lg ml-2">
+                    Erase Data
+                </button>
+            </div>
         </div>
 
         <!--Modal-->
@@ -34,16 +46,65 @@
                             </table>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-success " id="save">Save</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success" id="save">Save</button>
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
 
-        <!--Carousel-->
-        <div class="bd-example">
+        <!--Row for different modes-->
+        <div id="modes" class="row justify-content-center">
+            <div class="col">
+                <div class="card">
+                    <img src="/assets/images/flashcards.png" class="card-img-top learningModeImg" alt="flashcards">
+                    <div class="card-body mode">
+                        <a href="/flashcards">
+                            <h3 class="card-title">Flashcards</h3>
+                        </a>
+                        <hr>
+                        <p class="card-text">The flashcard mode helps visual learners memorize a set of data.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="/assets/images/hangman.jpg" class="card-img-top learningModeImg" alt="hangman">
+                    <div class="card-body mode">
+                        <a href="/hangman">
+                            <h3 class="card-title">Hangman</h3>
+                        </a>
+                        <hr>
+                        <p class="card-text">The hangman mode helps visual learners memorize a set of data.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="/assets/images/multipleChoice.jpg" class="card-img-top learningModeImg"
+                        alt="multiple choice">
+                    <div class="card-body mode">
+                        <a href="#">
+                            <h3 class="card-title">Multiple Choice</h3>
+                        </a>
+                        <hr>
+                        <p class="card-text">The multiple choice mode helps logical learners memorize a set of data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+
+
+<!--Carousel-->
+{{!-- <div class="bd-example">
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -52,23 +113,29 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../assets/images/flashcards.jpg" class="d-block w-100" alt="flashcards">
+                        <img src="../assets/images/flashcards.png" class="d-block w-100" alt="flashcards">
                         <div class="carousel-caption d-none d-md-block">
-                            <a href="/flashcards"><h5>Flashcards</h5></a>
+                            <a href="/flashcards">
+                                <h5>Flashcards</h5>
+                            </a>
                             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="../assets/images/hangman.png" class="d-block w-100" alt="hangman">
+                        <img src="../assets/images/hangman.jpg" class="d-block w-100" alt="hangman">
                         <div class="carousel-caption d-none d-md-block">
-                            <a href="/hangman"><h5>Hangman</h5></a>
+                            <a href="/hangman">
+                                <h5>Hangman</h5>
+                            </a>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="../assets/images/multipleChoice.jpg" class="d-block w-100" alt="multiple choice">
                         <div class="carousel-caption d-none d-md-block">
-                            <a href="#"><h5>Multiple Choice</h5></a>
+                            <a href="#">
+                                <h5>Multiple Choice</h5>
+                            </a>
                             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                         </div>
                     </div>
@@ -82,55 +149,20 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-        </div>
+        </div> --}}
 
-        {{!-- <!--Row for different modes-->
-         <div class="row fixed-bottom">
-            <div class="col text-center">
-                <img class="learningModeImg img-fluid" src="/assets/images/flashcards.jpg" alt="placeholder image">
-                <a href="/flashcards">
-                    <h3 class="text-center p-4">Flashcards</h3>
-                </a>
-            </div>
-            <div class="col text-center">
-                <img class="learningModeImg img-fluid" src="/assets/images/hangman.png" alt="placeholder image"> 
-                <a href="/hangman">
-                    <h3 class="text-center p-4">Hangman</h3>
-                </a>
-            </div>
-            <div class="col text-center">
-                <img class="learningModeImg img-fluid" src="/assets/images/multipleChoice.jpg" alt="placeholder image">
-                <a href="#">
-                    <h3 class="text-center p-4">Multiple Choice</h3>
-                </a>
-            </div>
-        </div>  --}}
-    </div>
-</div>
+<!--logo-->
+{{!-- <div class="row justify-content-center">
+            <img class="img-fluid" src="assets/images/logo.png" alt="logo" id="mainLogo">
+        </div> --}}
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $(document).on("click", "i.add", function (event) {
-            event.preventDefault();
-            var rows = $('.form-table tbody  tr').length;
-            var $tr = $(this).closest('tr');
-            var tr = '<tr class="questAnswer" style="text-align: center;">' +
-                '<td class="question"><input type="text" maxlength="100" name="term" class="form-control" placeholder="Add Term" required></td>' +
-                '<td class="answer"><textarea  name="definition" class="form-control" placeholder="definition" required></textarea></td>' +
-                '<td><i class="fa fa-minus"></i> &nbsp; <i class="fa fa-plus add"></i></td></tr>';
-            $tr.after(tr);
-            if (rows == 1)
-                $(this).addClass('fa-minus').removeClass('fa-plus add');
-            else
-                $(this).remove();
-        });
-        $(document).on("click", "i.fa-minus", function () {
-            var rows = $('.form-table tbody  tr').length;
-            if (rows == 2) {
-                $(this).parent().parent().prev().find('i.fa-minus').addClass('fa-plus add').removeClass('fa-minus');
-            }
-            $(this).parent().parent().remove();
-        });
-    });
-</script>
+{{!-- <!--Input data button-->
+        <div class="row text-center justify-content-center inputButton mr-2">
+            <button type="button" id="createButton" class="btn btn-success btn-lg" data-toggle="modal"
+                data-target="#form-modal">
+                Create Your Data
+            </button>
+            <button type="button" id="erase" class="btn btn-success btn-lg ml-2">
+                Erase Data
+            </button>
+        </div> --}}

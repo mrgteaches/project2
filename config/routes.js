@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function (app) {
 
-  //Routers based on the method
+  //HTML Routes
   app.get('/', function (req, res) {
     res.render("index")
   });
@@ -11,14 +11,25 @@ module.exports = function (app) {
     res.render("index")
   });
 
+  app.get("/hangman", function (req, res) {
+    db.Terms.findOne({}).then(function(data){
+      res.render("hangman", {Terms:data})
+    })
+    
+  });
+
   app.get("/flashcards", function (req, res) {
     db.Terms.findAll({}).then(function(data){
-      res.render("flashcard", {Terms:data});
+      res.render("flashcard", {Terms:data})
     })
   });
 
-  app.get("/hangman", function (req, res) {
-    res.render("hangman")
+
+  //API Routes
+  app.get("/api", function (req, res) {
+    db.Terms.findAll({}).then(function(data){
+      res.json(data);
+    })
   });
 
   app.post("/", function (req, res) {
@@ -44,4 +55,12 @@ module.exports = function (app) {
         });
     }
   });
+
+  app.delete("/api", function(req,res) {
+    db.Terms.destroy({
+      where: {}
+    }).then(function(data){
+      res.json(data);
+    })
+  })
 };
