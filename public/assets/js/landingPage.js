@@ -26,17 +26,19 @@ $(document).ready(function () {
     });
 
     //click event for deleting table data
-    $(document).on("click", "#erase", deleteTerms);
-    
-
-    //function for deleting data in table
-    function deleteTerms() {
+    $(document).on("click", "#erase", function(){
         $.ajax({
-          method: "DELETE",
-          url: "/api"
+            method: "DELETE",
+            url: "/api"
         })
-          .then(function(req,res) {
+        .then(function(req,res) {
+            $("#erase").addClass("animated fadeOut");
             res.render("index");
-          });
-      }
+            });
+        })
+
+        //show erase button once data is saved again
+        $(document).on("click", "#save", function(){
+            $("#erase").removeClass("animated fadeOut")
+        })
 });
